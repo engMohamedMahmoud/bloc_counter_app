@@ -2,14 +2,22 @@
 import 'package:flutter/material.dart';
 
 import 'package:bloc_counter_app/helper/app_router.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: HydratedStorageDirectory(
+      (await getTemporaryDirectory()).path,
+    ),
+  );
   runApp(MyApp(appRouter: AppRouter()));
 }
 
 class MyApp extends StatelessWidget {
   final AppRouter appRouter;
-  const MyApp({Key? key, required this.appRouter}) : super(key: key);
+  const MyApp({super.key, required this.appRouter});
 
   // This widget is the root of your application.
   @override

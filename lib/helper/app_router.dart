@@ -2,7 +2,6 @@ import '../business_layer/cubit/counter_cubit.dart';
 import 'routes.dart';
 import '../presentation_layer/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
@@ -22,5 +21,6 @@ class AppRouter {
               ),
         );
     }
+    return null;
   }
 }
